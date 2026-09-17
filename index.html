@@ -167,6 +167,8 @@
     flex-direction: column;
     justify-content: center;
     padding: 4px 4px 4px 8px;
+    position: relative;
+    z-index: 1;
   }
 
   .eyebrow {
@@ -261,8 +263,15 @@
 
   @media (min-width: 981px) {
     .hero-image {
-      margin-right: -16px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 45vw;
+      height: 100vh;
+      min-height: 0;
+      margin: 0;
       border-radius: 22px 0 0 22px;
+      z-index: 0;
     }
   }
 
