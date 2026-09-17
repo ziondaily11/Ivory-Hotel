@@ -70,27 +70,13 @@
   .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: 'Libre Caslon Display', serif;
-    font-size: 19px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    color: var(--charcoal);
     flex-shrink: 0;
   }
 
-  .brand-mark {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: var(--charcoal);
-    color: var(--ivory);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Libre Caslon Display', serif;
-    font-size: 15px;
-    flex-shrink: 0;
+  .brand-logo {
+    width: 72px;
+    height: auto;
+    display: block;
   }
 
   .nav-links {
@@ -181,6 +167,8 @@
     flex-direction: column;
     justify-content: center;
     padding: 4px 4px 4px 8px;
+    position: relative;
+    z-index: 1;
   }
 
   .eyebrow {
@@ -271,6 +259,20 @@
     min-height: 420px;
     opacity: 0;
     animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.1s;
+  }
+
+  @media (min-width: 981px) {
+    .hero-image {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 45vw;
+      height: 100vh;
+      min-height: 0;
+      margin: 0;
+      border-radius: 22px 0 0 22px;
+      z-index: 0;
+    }
   }
 
   .hero-image img {
@@ -433,8 +435,7 @@
 
   <nav class="navbar">
     <div class="brand">
-      <span class="brand-mark">I</span>
-      Ivory
+      <img class="brand-logo" src="assets/logo.png" alt="Ivory Hotel &amp; Restaurant">
     </div>
 
     <ul class="nav-links">
@@ -454,8 +455,8 @@
   <div class="hero">
     <div class="hero-content">
       <p class="eyebrow">Ivory Hotel &amp; Restaurant, Nairobi</p>
-      <h1 class="headline">A taste of comfort in Nairobi</h1>
-      <p class="subcopy">Good food, warm spaces, and an experience worth coming back to.</p>
+      <h1 class="headline">The Ivory experience, wherever you are.</h1>
+      <p class="subcopy">Warm spaces, good food, and hospitality worth coming back to.</p>
 
       <div class="cta-row">
         <button class="cta-primary">Book a table</button>
@@ -477,7 +478,9 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-top">
-    <div class="brand"><span class="brand-mark">I</span>Ivory</div>
+    <div class="brand">
+      <img class="brand-logo" src="assets/logo.png" alt="Ivory Hotel &amp; Restaurant">
+    </div>
     <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">&times;</button>
   </div>
   <ul>
