@@ -70,27 +70,14 @@
   .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: 'Libre Caslon Display', serif;
-    font-size: 19px;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-    color: var(--charcoal);
     flex-shrink: 0;
   }
 
-  .brand-mark {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: var(--charcoal);
-    color: var(--ivory);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Libre Caslon Display', serif;
-    font-size: 15px;
-    flex-shrink: 0;
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    display: block;
   }
 
   .nav-links {
@@ -433,8 +420,7 @@
 
   <nav class="navbar">
     <div class="brand">
-      <span class="brand-mark">I</span>
-      Ivory
+      <img class="brand-logo" src="assets/logo.png" alt="Ivory Hotel &amp; Restaurant">
     </div>
 
     <ul class="nav-links">
@@ -477,7 +463,9 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-top">
-    <div class="brand"><span class="brand-mark">I</span>Ivory</div>
+    <div class="brand">
+      <img class="brand-logo" src="assets/logo.png" alt="Ivory Hotel &amp; Restaurant">
+    </div>
     <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">&times;</button>
   </div>
   <ul>
