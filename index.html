@@ -175,7 +175,7 @@
     display: flex;
     align-items: flex-end;
     gap: 17px;
-    margin-bottom: 34px;
+    margin-bottom: 56px;
   }
 
   .thumb {
@@ -205,15 +205,16 @@
   h1.headline {
     font-family: 'Libre Caslon Display', serif;
     font-weight: 400;
-    font-size: clamp(40px, 5.4vw, 68px);
+    font-size: clamp(40px, 4.5vw, 56px);
     line-height: 1.06;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
     margin: 0 0 22px 0;
     color: var(--charcoal);
     opacity: 0;
     transform: translateY(14px);
     animation: riseIn 0.8s ease forwards 0.15s;
-    max-width: 12ch;
+    max-width: 20ch;
   }
 
   p.subcopy {
@@ -285,6 +286,10 @@
   }
 
   @media (min-width: 981px) {
+    .hero {
+      min-height: calc(100vh - 117px);
+    }
+
     .hero-image {
       position: fixed;
       top: 0;
