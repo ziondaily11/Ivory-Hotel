@@ -36,28 +36,22 @@
 
   body {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 20px;
-  }
-
-  @media (max-width: 720px) {
-    body { padding: 14px; }
+    display: block;
+    padding: 0;
   }
 
   .stage {
     width: 100%;
-    max-width: 1360px;
+    max-width: none;
     background: var(--ivory-panel);
-    border-radius: 32px;
-    box-shadow: 0 30px 80px -20px rgba(var(--shadow-color), 0.28), 0 2px 8px rgba(var(--shadow-color), 0.06);
+    border-radius: 0;
+    box-shadow: none;
     overflow: hidden;
-    padding: 28px 28px 0 28px;
+    padding: 28px 16px 0 40px;
   }
 
   @media (max-width: 720px) {
-    .stage { border-radius: 22px; padding: 16px 16px 0 16px; }
+    .stage { border-radius: 0; padding: 16px 12px 0 16px; }
   }
 
   /* ---------- NAV ---------- */
