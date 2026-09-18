@@ -514,8 +514,18 @@
     .nav-links { display: none; }
     .menu-toggle {
       display: flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
       background: #FFFFFF;
-      border-radius: 0 0 8px 8px;
+      border-radius: 8px;
+      padding: 0;
+    }
+    .menu-toggle span {
+      width: 22px;
+      height: 1px;
     }
     .hero {
       grid-template-columns: 1fr;
@@ -540,9 +550,9 @@
       justify-content: center;
       padding: 0 2px;
     }
-    .thumb-row { gap: 10px; margin-bottom: 24px; }
-    .thumb { width: 76px; height: 100px; border-radius: 13px; }
-    .thumb.tall { height: 130px; }
+    .thumb-row { gap: 10px; margin-bottom: 8px; }
+    .thumb { width: 90px; height: 120px; border-radius: 13px; }
+    .thumb.tall { width: 110px; height: 180px; }
     h1.headline {
       max-width: none;
       font-size: clamp(30px, 8vw, 34px);
@@ -560,7 +570,9 @@
     p.subcopy { margin: 10px 0 20px; text-align: center; }
     .cta-row { justify-content: center; }
     .menu-toggle {
-      border-radius: 0 0 8px 8px;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
       box-shadow: 0 3px 10px rgba(var(--shadow-color), 0.16);
     }
     .hero-caption {
@@ -578,10 +590,10 @@
       justify-content: center;
       gap: 14px;
     }
-    .thumb-row { margin-bottom: 17px; }
+    .thumb-row { margin-bottom: 8px; }
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 380px) {
     .hero {
       grid-template-rows: 44svh 56svh;
     }
@@ -592,17 +604,18 @@
 
     .thumb-row {
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
 
     .thumb {
-      width: 64px;
-      height: 86px;
+      width: 76px;
+      height: 100px;
       border-radius: 11px;
     }
 
     .thumb.tall {
-      height: 108px;
+      width: 96px;
+      height: 150px;
     }
 
     h1.headline {
@@ -621,6 +634,18 @@
     .cta-primary {
       padding: 15px 28px;
       font-size: 13.5px;
+    }
+  }
+
+  @media (max-width: 365px) {
+    .thumb {
+      width: 64px;
+      height: 86px;
+    }
+
+    .thumb.tall {
+      width: 76px;
+      height: 108px;
     }
   }
 </style>
