@@ -512,7 +512,11 @@
     }
 
     .nav-links { display: none; }
-    .menu-toggle { display: flex; }
+    .menu-toggle {
+      display: flex;
+      background: #FFFFFF;
+      border-radius: 0 0 8px 8px;
+    }
     .hero {
       grid-template-columns: 1fr;
       grid-template-rows: 48svh 52svh;
@@ -524,7 +528,10 @@
       order: -1;
       min-height: 0;
       height: 48svh;
-      border-radius: 20px;
+      width: calc(100% + 28px);
+      margin-left: -16px;
+      margin-right: -12px;
+      border-radius: 0 0 20px 20px;
       margin-bottom: 0;
     }
     .hero-content {
@@ -561,7 +568,7 @@
       justify-content: center;
       gap: 14px;
     }
-    .thumb-row { margin-bottom: 20px; }
+    .thumb-row { margin-bottom: 17px; }
   }
 </style>
 </head>
