@@ -940,7 +940,7 @@
       <li><a href="#suites">Suites</a></li>
       <li><a href="#dining">Dining</a></li>
       <li><a href="#">Gallery</a></li>
-      <li><a href="#">Reviews</a></li>
+      <li><a href="#reviews">Reviews</a></li>
     </ul>
 
     <div class="navbar-spacer"></div>
@@ -2115,6 +2115,421 @@
   })();
 </script>
 
+<section class="ivory-reviews" id="reviews">
+  <div class="ivory-reviews__intro">
+    <p class="ivory-reviews__eyebrow">Reviews</p>
+    <h2 class="ivory-reviews__title">What Our Customers<br>Are Saying</h2>
+  </div>
+
+  <div class="ivory-reviews__grid">
+    <article class="ivory-reviews__item">
+      <p class="ivory-reviews__quote">“Placeholder review text describing a memorable stay, thoughtful service, comfortable rooms, and the overall Ivory experience.”</p>
+      <p class="ivory-reviews__guest">— Guest Name</p>
+      <p class="ivory-reviews__context">Location / Guest type</p>
+    </article>
+    <article class="ivory-reviews__item">
+      <p class="ivory-reviews__quote">“Placeholder review text describing a memorable stay, thoughtful service, comfortable rooms, and the overall Ivory experience.”</p>
+      <p class="ivory-reviews__guest">— Guest Name</p>
+      <p class="ivory-reviews__context">Location / Guest type</p>
+    </article>
+    <article class="ivory-reviews__item">
+      <p class="ivory-reviews__quote">“Placeholder review text describing a memorable stay, thoughtful service, comfortable rooms, and the overall Ivory experience.”</p>
+      <p class="ivory-reviews__guest">— Guest Name</p>
+      <p class="ivory-reviews__context">Location / Guest type</p>
+    </article>
+  </div>
+</section>
+
+<style>
+  .ivory-reviews {
+    --ivory-reviews-ink: #211f1b;
+    --ivory-reviews-muted: #6e675d;
+    padding: clamp(112px, 15vw, 220px) clamp(24px, 7vw, 104px) clamp(140px, 17vw, 240px);
+    background: #fbfaf7;
+    color: var(--ivory-reviews-ink);
+    text-align: center;
+  }
+
+  .ivory-reviews__intro,
+  .ivory-reviews__item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ivory-reviews.is-visible .ivory-reviews__intro,
+  .ivory-reviews.is-visible .ivory-reviews__item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ivory-reviews.is-visible .ivory-reviews__item:nth-child(1) { transition-delay: 180ms; }
+  .ivory-reviews.is-visible .ivory-reviews__item:nth-child(2) { transition-delay: 280ms; }
+  .ivory-reviews.is-visible .ivory-reviews__item:nth-child(3) { transition-delay: 380ms; }
+
+  .ivory-reviews__eyebrow,
+  .ivory-footer__label {
+    margin: 0 0 18px;
+    color: var(--ivory-reviews-muted);
+    font: 500 11px/1.2 'Work Sans', sans-serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .ivory-reviews__title {
+    margin: 0;
+    font: 400 clamp(42px, 6vw, 78px)/1.02 'Libre Caslon Display', Georgia, serif;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+
+  .ivory-reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(28px, 5vw, 80px);
+    max-width: 1180px;
+    margin: clamp(76px, 9vw, 132px) auto 0;
+    text-align: left;
+  }
+
+  .ivory-reviews__item {
+    padding-top: 24px;
+    border-top: 1px solid rgba(33, 31, 27, 0.18);
+    transition-duration: 0.9s;
+  }
+
+  .ivory-reviews__item:hover {
+    transform: translateY(-4px);
+  }
+
+  .ivory-reviews__quote {
+    max-width: 34ch;
+    margin: 0 0 30px;
+    color: var(--ivory-reviews-ink);
+    font: 400 clamp(19px, 2vw, 26px)/1.45 'Libre Caslon Display', Georgia, serif;
+  }
+
+  .ivory-reviews__guest {
+    margin: 0 0 7px;
+    font: 500 11px/1.2 'Work Sans', sans-serif;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .ivory-reviews__context {
+    margin: 0;
+    color: var(--ivory-reviews-muted);
+    font: 13px/1.5 'Work Sans', sans-serif;
+  }
+
+  .ivory-footer {
+    padding: clamp(72px, 9vw, 126px) clamp(24px, 7vw, 104px) 28px;
+    background: #211f1b;
+    color: #f5f1e9;
+  }
+
+  .ivory-footer__grid,
+  .ivory-footer__closing,
+  .ivory-footer__bottom {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ivory-footer.is-visible .ivory-footer__grid,
+  .ivory-footer.is-visible .ivory-footer__closing,
+  .ivory-footer.is-visible .ivory-footer__bottom {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ivory-footer.is-visible .ivory-footer__closing { transition-delay: 120ms; }
+  .ivory-footer.is-visible .ivory-footer__bottom { transition-delay: 220ms; }
+
+  .ivory-footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: clamp(32px, 6vw, 96px);
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  .ivory-footer__brand img {
+    width: 118px;
+    height: auto;
+    margin-bottom: 24px;
+    filter: brightness(0) invert(1);
+  }
+
+  .ivory-footer__brand p {
+    max-width: 28ch;
+    margin: 0;
+    color: rgba(245, 241, 233, 0.68);
+    font: 14px/1.75 'Work Sans', sans-serif;
+  }
+
+  .ivory-footer__group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    color: rgba(245, 241, 233, 0.72);
+    font: 13px/1.5 'Work Sans', sans-serif;
+  }
+
+  .ivory-footer__group .ivory-footer__label {
+    margin-bottom: 8px;
+    color: #f5f1e9;
+  }
+
+  .ivory-footer__group a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .ivory-footer__group a:hover,
+  .ivory-footer__group a:focus-visible {
+    color: #fff;
+    transform: translateX(3px);
+  }
+
+  .ivory-footer__follow a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+  }
+
+  .ivory-footer__follow a span {
+    font-size: 13px;
+  }
+
+  .ivory-footer__closing {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    max-width: 1240px;
+    margin: clamp(88px, 12vw, 170px) auto 90px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(245, 241, 233, 0.2);
+  }
+
+  .ivory-footer__closing .ivory-footer__label {
+    margin-bottom: 14px;
+    color: rgba(245, 241, 233, 0.6);
+  }
+
+  .ivory-footer__invitation {
+    margin: 0;
+    font: 400 clamp(26px, 3vw, 46px)/1.1 'Libre Caslon Display', Georgia, serif;
+  }
+
+  .ivory-footer__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border: 1px solid rgba(245, 241, 233, 0.55);
+    border-radius: 999px;
+    color: #f5f1e9;
+    font: 500 11px/1.2 'Work Sans', sans-serif;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .ivory-footer__cta:hover,
+  .ivory-footer__cta:focus-visible {
+    background: #f5f1e9;
+    color: #211f1b;
+  }
+
+  .ivory-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-top: 22px;
+    border-top: 1px solid rgba(245, 241, 233, 0.12);
+    color: rgba(245, 241, 233, 0.48);
+    font: 11px/1.4 'Work Sans', sans-serif;
+  }
+
+  @media (max-width: 760px) {
+    .ivory-reviews {
+      padding: 96px 20px 120px;
+    }
+
+    .ivory-reviews__title {
+      font-size: clamp(38px, 12vw, 56px);
+    }
+
+    .ivory-reviews__grid {
+      grid-template-columns: 1fr;
+      gap: 54px;
+      margin-top: 68px;
+    }
+
+    .ivory-footer {
+      padding: 72px 20px 24px;
+    }
+
+    .ivory-footer__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 56px 28px;
+    }
+
+    .ivory-footer__brand {
+      grid-column: 1 / -1;
+    }
+
+    .ivory-footer__closing {
+      display: block;
+      margin: 96px auto 68px;
+    }
+
+    .ivory-footer__cta {
+      margin-top: 28px;
+    }
+
+    .ivory-footer__bottom {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ivory-reviews__intro,
+    .ivory-reviews__item,
+    .ivory-footer__grid,
+    .ivory-footer__closing,
+    .ivory-footer__bottom {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .ivory-footer__group a,
+    .ivory-footer__cta {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    var reviews = document.querySelector('.ivory-reviews');
+    var footer = document.querySelector('.ivory-footer');
+    if (!reviews) return;
+    var reviewsRevealed = false;
+    var footerRevealed = false;
+
+    function revealReviews() {
+      if (reviewsRevealed) return;
+      reviewsRevealed = true;
+      reviews.classList.add('is-visible');
+    }
+
+    function revealFooter() {
+      if (!footer || footerRevealed) return;
+      footerRevealed = true;
+      footer.classList.add('is-visible');
+    }
+
+    function checkViewport() {
+      var reviewBounds = reviews.getBoundingClientRect();
+      if (reviewBounds.top < window.innerHeight && reviewBounds.bottom > 0) {
+        revealReviews();
+      }
+
+      if (footer) {
+        var footerBounds = footer.getBoundingClientRect();
+        if (footerBounds.top < window.innerHeight && footerBounds.bottom > 0) {
+          revealFooter();
+        }
+      }
+
+      if (reviewsRevealed && (!footer || footerRevealed)) {
+        window.removeEventListener('scroll', checkViewport);
+      }
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      revealReviews();
+      revealFooter();
+    } else {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          revealReviews();
+          observer.disconnect();
+        });
+      }, { threshold: 0.12 });
+
+      observer.observe(reviews);
+    }
+
+    if (footer && 'IntersectionObserver' in window) {
+      var footerObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          revealFooter();
+          footerObserver.disconnect();
+        });
+      }, { threshold: 0.08 });
+
+      footerObserver.observe(footer);
+    }
+
+    window.addEventListener('scroll', checkViewport, { passive: true });
+    window.requestAnimationFrame(checkViewport);
+  })();
+</script>
+
+<footer class="ivory-footer">
+  <div class="ivory-footer__grid">
+    <div class="ivory-footer__brand">
+      <img src="assets/logo.png" alt="Ivory Hotel &amp; Restaurant">
+      <p>A considered stay shaped by warm hospitality, thoughtful spaces, and the quiet beauty of Kenya.</p>
+    </div>
+    <div class="ivory-footer__group">
+      <p class="ivory-footer__label">Explore</p>
+      <a href="#">Home</a>
+      <a href="#suites">Suites</a>
+      <a href="#dining">Dining</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <div class="ivory-footer__group">
+      <p class="ivory-footer__label">Contact</p>
+      <span>Phone: [placeholder]</span>
+      <span>Email: [placeholder]</span>
+      <span>Nairobi, Kenya</span>
+    </div>
+    <div class="ivory-footer__group ivory-footer__follow">
+      <p class="ivory-footer__label">Follow</p>
+      <a href="#" aria-label="Instagram placeholder">◎ <span>Instagram</span></a>
+      <a href="#" aria-label="Facebook placeholder">f <span>Facebook</span></a>
+      <a href="#" aria-label="Social channel placeholder">in <span>Social channel</span></a>
+    </div>
+  </div>
+  <div class="ivory-footer__closing">
+    <div>
+      <p class="ivory-footer__label">Plan your stay</p>
+      <p class="ivory-footer__invitation">Make room for a slower, more considered stay.</p>
+    </div>
+    <a class="ivory-footer__cta" href="#dining">Contact / Book <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="ivory-footer__bottom">
+    <span>© 2026 Ivory. All rights reserved.</span>
+    <span>Nairobi, Kenya</span>
+  </div>
+</footer>
+
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-top">
     <div class="brand">
@@ -2127,7 +2542,7 @@
     <li><a href="#suites">Suites</a></li>
     <li><a href="#dining">Dining</a></li>
     <li><a href="#">Gallery</a></li>
-    <li><a href="#">Reviews</a></li>
+    <li><a href="#reviews">Reviews</a></li>
   </ul>
   <button class="nav-cta">Book a table</button>
 </div>
