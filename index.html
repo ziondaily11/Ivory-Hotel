@@ -218,12 +218,20 @@
     max-width: 20ch;
   }
 
+  .headline-line {
+    display: block;
+  }
+
+  .headline-line--offset {
+    margin-left: clamp(2rem, 5vw, 5rem);
+  }
+
   p.subcopy {
     font-size: 16.5px;
     line-height: 1.65;
     color: var(--muted);
     max-width: 38ch;
-    margin: 0 0 38px 0;
+    margin: 0 0 38px clamp(1.5rem, 3vw, 3rem);
     opacity: 0;
     transform: translateY(10px);
     animation: riseIn 0.8s ease forwards 0.3s;
@@ -233,6 +241,7 @@
     display: flex;
     align-items: center;
     gap: 22px;
+    margin-left: clamp(1.5rem, 3vw, 3rem);
     opacity: 0;
     transform: translateY(10px);
     animation: riseIn 0.8s ease forwards 0.42s;
@@ -432,6 +441,9 @@
 
   @media (max-width: 480px) {
     .cta-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .headline-line--offset { margin-left: 1.5rem; }
+    p.subcopy,
+    .cta-row { margin-left: 1.5rem; }
   }
 </style>
 </head>
@@ -465,12 +477,14 @@
         <div class="thumb tall"><img src="assets/img2.png" alt="Ivory Hotel dining space close-up"></div>
         <div class="thumb"><img src="assets/img3.jpg" alt="Ivory Hotel restaurant dining area"></div>
       </div>
-      <h1 class="headline">The Ivory experience, wherever you are.</h1>
+      <h1 class="headline">
+        <span class="headline-line">The Ivory Experience</span>
+        <span class="headline-line headline-line--offset">in Kenya</span>
+      </h1>
       <p class="subcopy">Warm spaces, good food, and hospitality worth coming back to.</p>
 
       <div class="cta-row">
         <button class="cta-primary">Book a table</button>
-        <a href="#" class="cta-secondary">View the menu</a>
       </div>
     </div>
 
