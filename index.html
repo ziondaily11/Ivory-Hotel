@@ -1640,6 +1640,93 @@
   }
 </style>
 
+<style>
+  .ivory-footer {
+    margin: 0 clamp(6px, 1vw, 14px) !important;
+    padding: 24px clamp(24px, 7vw, 76px) 14px !important;
+    border-radius: 0 0 30px 30px !important;
+    background: #14365c !important;
+    overflow: hidden !important;
+  }
+
+  .ivory-footer__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: clamp(20px, 4vw, 64px) !important;
+    max-width: none !important;
+  }
+
+  .ivory-footer__brand img {
+    display: none !important;
+  }
+
+  .ivory-footer__brand p {
+    max-width: 28ch !important;
+    color: rgba(245, 241, 233, 0.78) !important;
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+  }
+
+  .ivory-footer__group {
+    gap: 4px !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+
+  .ivory-footer__group .ivory-footer__label {
+    margin-bottom: 3px !important;
+    color: #f5f1e9 !important;
+    font-size: 10px !important;
+  }
+
+  .ivory-footer__follow a {
+    gap: 7px !important;
+    font-size: 11px !important;
+  }
+
+  .ivory-footer__follow a span {
+    font-size: 11px !important;
+  }
+
+  .ivory-footer__closing {
+    display: none !important;
+  }
+
+  .ivory-footer__bottom {
+    justify-content: center !important;
+    margin-top: 20px !important;
+    padding-top: 10px !important;
+    border-top-color: rgba(245, 241, 233, 0.2) !important;
+    color: rgba(245, 241, 233, 0.55) !important;
+    font-size: 10px !important;
+    text-align: center !important;
+  }
+
+  .ivory-footer__bottom span:last-child {
+    display: none !important;
+  }
+
+  @media (max-width: 760px) {
+    .ivory-footer {
+      margin: 0 6px !important;
+      padding: 24px 20px 14px !important;
+      border-radius: 0 0 24px 24px !important;
+    }
+
+    .ivory-footer__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 24px 20px !important;
+    }
+
+    .ivory-footer__brand {
+      grid-column: 1 / -1 !important;
+    }
+
+    .ivory-footer__bottom {
+      margin-top: 22px !important;
+    }
+  }
+</style>
+
 <script>
   (function () {
     var track = document.getElementById('ivorySuitesTrack');
