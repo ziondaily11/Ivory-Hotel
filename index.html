@@ -311,6 +311,19 @@
       min-height: calc(100vh - 117px);
     }
 
+    .navbar {
+      gap: 34px;
+    }
+
+    .brand-logo {
+      width: 80px;
+    }
+
+    .thumb-row {
+      gap: 14px;
+      margin-bottom: 42px;
+    }
+
     p.subcopy .subcopy-line {
       display: inline;
     }
@@ -320,15 +333,31 @@
     }
 
     h1.headline {
-      font-size: clamp(42px, 3.8vw, 50px);
+      font-size: clamp(40px, 3.5vw, 47px);
+      line-height: 1.03;
+      letter-spacing: 0.01em;
       max-width: 24ch;
+    }
+
+    p.subcopy {
+      margin-top: 12px;
+      margin-bottom: 30px;
+    }
+
+    .cta-primary {
+      box-shadow: 0 6px 16px -10px rgba(var(--shadow-color), 0.28);
+    }
+
+    .hero-caption {
+      left: 36px;
+      bottom: 34px;
     }
 
     .hero-image {
       position: fixed;
       top: 0;
       right: 0;
-      width: 45vw;
+      width: 48vw;
       height: 100vh;
       min-height: 0;
       margin: 0;
@@ -345,6 +374,7 @@
     position: absolute;
     inset: 0;
     content: url("assets/ivoryhotel.jpg");
+    object-position: 50% 50%;
   }
 
   .hero-image::before {
