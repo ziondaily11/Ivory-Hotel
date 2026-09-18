@@ -477,12 +477,21 @@
   }
 
   @media (min-width: 981px) {
+    .stage {
+      position: relative;
+      height: 100vh;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
     .hero {
-      min-height: calc(100vh - 117px);
+      min-height: 0;
+      height: calc(100vh - 90px);
     }
 
     .hero-content {
       align-items: center;
+      width: 54vw;
     }
 
     .navbar {
@@ -540,9 +549,9 @@
     }
 
     .hero-image {
-      position: fixed;
+      position: absolute;
       top: 0;
-      right: 0;
+      right: -16px;
       width: 46vw;
       height: 100vh;
       min-height: 0;
