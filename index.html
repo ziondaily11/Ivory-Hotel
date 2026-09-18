@@ -232,11 +232,20 @@
     font-size: 16.5px;
     line-height: 1.65;
     color: var(--muted);
-    max-width: 38ch;
+    max-width: none;
     margin: 0 0 38px clamp(1.5rem, 3vw, 3rem);
     opacity: 0;
     transform: translateY(10px);
     animation: riseIn 0.8s ease forwards 0.3s;
+  }
+
+  .subcopy-line {
+    display: block;
+  }
+
+  .subcopy-line--offset {
+    width: max-content;
+    margin: 0 auto;
   }
 
   .cta-row {
@@ -480,7 +489,10 @@
         <span class="headline-line">The Ivory Experience</span>
         <span class="headline-line headline-line--offset">in Kenya</span>
       </h1>
-      <p class="subcopy">Warm spaces, good food, and hospitality worth coming back to.</p>
+      <p class="subcopy">
+        <span class="subcopy-line">Warm spaces, good food, and hospitality worth</span>
+        <span class="subcopy-line subcopy-line--offset">coming back to.</span>
+      </p>
 
       <div class="cta-row">
         <button class="cta-primary">Book a table</button>
