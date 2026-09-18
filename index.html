@@ -987,7 +987,7 @@
 
 <section class="ivory-suites" id="suites">
   <div class="ivory-suites__header">
-    <h2 class="ivory-suites__title">Suites and Rooms</h2>
+    <h2 class="ivory-suites__title">Suites &amp; Rooms</h2>
     <p class="ivory-suites__subtitle">
       From the Nairobi skyline to the highlands of Nakuru and the coast in
       Mombasa, every Ivory suite is shaped by its city — quiet comfort,
@@ -997,26 +997,6 @@
 
   <div class="ivory-suites__marquee">
     <div class="ivory-suites__track" id="ivorySuitesTrack">
-      <div class="ivory-suites__card ivory-suites__card--short" data-img="">
-        <div class="ivory-suites__ph"></div>
-        <span class="ivory-suites__tag">photo</span>
-      </div>
-      <div class="ivory-suites__card ivory-suites__card--tall" data-img="">
-        <div class="ivory-suites__ph"></div>
-        <span class="ivory-suites__tag">photo</span>
-      </div>
-      <div class="ivory-suites__card ivory-suites__card--medium" data-img="">
-        <div class="ivory-suites__ph"></div>
-        <span class="ivory-suites__tag">photo</span>
-      </div>
-      <div class="ivory-suites__card ivory-suites__card--tall" data-img="">
-        <div class="ivory-suites__ph"></div>
-        <span class="ivory-suites__tag">photo</span>
-      </div>
-      <div class="ivory-suites__card ivory-suites__card--short" data-img="">
-        <div class="ivory-suites__ph"></div>
-        <span class="ivory-suites__tag">photo</span>
-      </div>
     </div>
   </div>
 </section>
@@ -1139,29 +1119,196 @@
   }
 </style>
 
+<style>
+  .ivory-suites {
+    --ivory-editorial-ink: #211f1b;
+    --ivory-editorial-muted: #81796d;
+    --ivory-editorial-line: rgba(33, 31, 27, 0.14);
+    --ivory-editorial-paper: #eee8dc;
+    min-height: 100vh;
+    padding: clamp(72px, 10vw, 140px) clamp(24px, 6vw, 88px);
+    background: #fbfaf7;
+    color: var(--ivory-editorial-ink);
+  }
+
+  .ivory-suites__header {
+    max-width: 680px;
+    margin: 0 auto clamp(64px, 9vw, 120px);
+  }
+
+  .ivory-suites__title {
+    font-family: 'Libre Caslon Display', Georgia, serif;
+    font-size: clamp(42px, 6vw, 78px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .ivory-suites__subtitle {
+    color: var(--ivory-editorial-muted);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .ivory-suites__marquee {
+    overflow-x: auto;
+    padding: 0 0 28px;
+    -webkit-mask-image: none;
+    mask-image: none;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(33, 31, 27, 0.22) transparent;
+  }
+
+  .ivory-suites__track {
+    align-items: flex-start;
+    gap: clamp(28px, 3.2vw, 54px);
+    animation: none;
+    width: max-content;
+  }
+
+  .ivory-suites__card {
+    width: clamp(220px, 23vw, 330px);
+    overflow: visible;
+    border-radius: 0;
+  }
+
+  .ivory-suites__card--short { margin-top: 92px; }
+  .ivory-suites__card--medium { margin-top: 46px; }
+  .ivory-suites__card--tall { margin-top: 0; }
+  .ivory-suites__card:nth-child(4) { margin-top: 20px; }
+
+  .ivory-suites__ph {
+    position: relative;
+    height: clamp(300px, 36vw, 510px);
+    background-color: var(--ivory-editorial-paper);
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(33, 31, 27, 0.055) 0,
+      rgba(33, 31, 27, 0.055) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+    border: 1px solid var(--ivory-editorial-line);
+    border-radius: 3px;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ivory-suites__card--short .ivory-suites__ph { height: clamp(240px, 28vw, 390px); }
+  .ivory-suites__card--medium .ivory-suites__ph { height: clamp(275px, 32vw, 450px); }
+  .ivory-suites__card--tall .ivory-suites__ph { height: clamp(330px, 40vw, 560px); }
+
+  .ivory-suites__ph::after {
+    content: "PHOTO";
+    position: absolute;
+    left: 18px;
+    bottom: 16px;
+    color: var(--ivory-editorial-muted);
+    font: 500 10px/1 'Work Sans', sans-serif;
+    letter-spacing: 0.18em;
+  }
+
+  .ivory-suites__tag {
+    display: none;
+  }
+
+  .ivory-suites__meta {
+    padding-top: 20px;
+    border-top: 1px solid var(--ivory-editorial-line);
+    margin-top: 18px;
+  }
+
+  .ivory-suites__number,
+  .ivory-suites__link {
+    color: var(--ivory-editorial-muted);
+    font: 500 10px/1.2 'Work Sans', sans-serif;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .ivory-suites__room-title {
+    margin: 12px 0 8px;
+    font: 400 clamp(23px, 2.2vw, 32px)/1.05 'Libre Caslon Display', Georgia, serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: transform 0.6s ease;
+  }
+
+  .ivory-suites__description {
+    max-width: 27ch;
+    min-height: 48px;
+    margin: 0 0 18px;
+    color: var(--ivory-editorial-muted);
+    font: 14px/1.6 'Work Sans', sans-serif;
+  }
+
+  .ivory-suites__link {
+    display: inline-flex;
+    gap: 8px;
+    color: var(--ivory-editorial-ink);
+    text-decoration: none;
+    transition: transform 0.6s ease, color 0.3s ease;
+  }
+
+  .ivory-suites__card:hover .ivory-suites__ph { transform: scale(1.015); }
+  .ivory-suites__card:hover .ivory-suites__room-title,
+  .ivory-suites__card:hover .ivory-suites__link { transform: translateX(5px); }
+  .ivory-suites__card:hover .ivory-suites__link { color: var(--ivory-editorial-muted); }
+
+  @media (max-width: 640px) {
+    .ivory-suites { padding: 72px 20px 88px; }
+    .ivory-suites__header { margin-bottom: 56px; }
+    .ivory-suites__title { font-size: clamp(38px, 12vw, 56px); }
+    .ivory-suites__subtitle { font-size: 14px; line-height: 1.7; }
+    .ivory-suites__track {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      width: 100%;
+      gap: 58px;
+    }
+    .ivory-suites__card,
+    .ivory-suites__card--short,
+    .ivory-suites__card--medium,
+    .ivory-suites__card--tall,
+    .ivory-suites__card:nth-child(4) {
+      width: 100%;
+      margin-top: 0;
+    }
+    .ivory-suites__ph,
+    .ivory-suites__card--short .ivory-suites__ph,
+    .ivory-suites__card--medium .ivory-suites__ph,
+    .ivory-suites__card--tall .ivory-suites__ph {
+      height: min(118vw, 500px);
+    }
+  }
+</style>
+
 <script>
   (function () {
     var track = document.getElementById('ivorySuitesTrack');
     if (!track) return;
 
-    track.querySelectorAll('.ivory-suites__card').forEach(function (card) {
-      var url = card.getAttribute('data-img');
-      if (!url) return;
-      var placeholder = card.querySelector('.ivory-suites__ph');
-      if (placeholder) {
-        placeholder.style.backgroundImage = 'url("' + url + '")';
-        placeholder.style.backgroundSize = 'cover';
-        placeholder.style.backgroundPosition = 'center';
-      }
-      var tag = card.querySelector('.ivory-suites__tag');
-      if (tag) tag.remove();
-    });
+    var rooms = [
+      ['01', 'Standard Room', 'A calm retreat designed for effortless comfort.'],
+      ['02', 'Regular Suite', 'Spacious interiors, considered details, and room to unwind.'],
+      ['03', 'Deluxe Suite', 'An elevated stay with generous space and refined finishes.'],
+      ['04', 'Executive Suite', 'A private setting shaped for longer stays and quiet moments.'],
+      ['05', 'Ivory Signature Suite', 'The most distinctive expression of the Ivory experience.']
+    ];
 
-    Array.prototype.slice.call(track.children).forEach(function (card) {
-      var clone = card.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      track.appendChild(clone);
-    });
+    track.innerHTML = rooms.map(function (room, index) {
+      var size = index === 0 || index === 3 ? 'tall' : index === 4 ? 'medium' : 'short';
+      return '<article class="ivory-suites__card ivory-suites__card--' + size + '">' +
+        '<div class="ivory-suites__ph"></div>' +
+        '<div class="ivory-suites__meta">' +
+          '<span class="ivory-suites__number">' + room[0] + ' / 05</span>' +
+          '<h3 class="ivory-suites__room-title">' + room[1] + '</h3>' +
+          '<p class="ivory-suites__description">' + room[2] + '</p>' +
+          '<a class="ivory-suites__link" href="#suites">Explore suite <span aria-hidden="true">→</span></a>' +
+        '</div>' +
+      '</article>';
+    }).join('');
   })();
 </script>
 
