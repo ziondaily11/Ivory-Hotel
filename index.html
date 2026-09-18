@@ -2122,20 +2122,29 @@
   </div>
 
   <div class="ivory-reviews__grid">
-    <article class="ivory-reviews__item">
-      <p class="ivory-reviews__quote">“Placeholder review text describing a memorable stay, thoughtful service, comfortable rooms, and the overall Ivory experience.”</p>
-      <p class="ivory-reviews__guest">— Guest Name</p>
-      <p class="ivory-reviews__context">Location / Guest type</p>
+    <article class="ivory-reviews__item" data-placeholder-review>
+      <div class="ivory-reviews__rating" aria-label="Five star placeholder rating">★★★★★</div>
+      <p class="ivory-reviews__quote">“From the warmth of the welcome to the quiet comfort of the room, every detail felt thoughtfully considered. The service was attentive without ever feeling intrusive.”</p>
+      <p class="ivory-reviews__guest">— Amelia K.</p>
+      <p class="ivory-reviews__context">Nairobi, Kenya</p>
     </article>
-    <article class="ivory-reviews__item">
-      <p class="ivory-reviews__quote">“Placeholder review text describing a memorable stay, thoughtful service, comfortable rooms, and the overall Ivory experience.”</p>
-      <p class="ivory-reviews__guest">— Guest Name</p>
-      <p class="ivory-reviews__context">Location / Guest type</p>
+    <article class="ivory-reviews__item" data-placeholder-review>
+      <div class="ivory-reviews__rating" aria-label="Five star placeholder rating">★★★★★</div>
+      <p class="ivory-reviews__quote">“I loved how peaceful the stay felt while still being close to everything. Beautiful spaces, genuinely warm service, and a breakfast I looked forward to every morning.”</p>
+      <p class="ivory-reviews__guest">— Daniel M.</p>
+      <p class="ivory-reviews__context">Business Traveller</p>
     </article>
-    <article class="ivory-reviews__item">
-      <p class="ivory-reviews__quote">“Placeholder review text describing a memorable stay, thoughtful service, comfortable rooms, and the overall Ivory experience.”</p>
-      <p class="ivory-reviews__guest">— Guest Name</p>
-      <p class="ivory-reviews__context">Location / Guest type</p>
+    <article class="ivory-reviews__item" data-placeholder-review>
+      <div class="ivory-reviews__rating" aria-label="Five star placeholder rating">★★★★★</div>
+      <p class="ivory-reviews__quote">“Ivory made our weekend feel effortless. The room was beautifully kept, the dining experience was memorable, and the team made us feel genuinely cared for.”</p>
+      <p class="ivory-reviews__guest">— Sarah &amp; James</p>
+      <p class="ivory-reviews__context">Weekend Stay</p>
+    </article>
+    <article class="ivory-reviews__item" data-placeholder-review>
+      <div class="ivory-reviews__rating" aria-label="Five star placeholder rating">★★★★★</div>
+      <p class="ivory-reviews__quote">“A wonderfully calm stay with thoughtful touches throughout. The atmosphere, hospitality and attention to detail made it very easy to settle in and enjoy the experience.”</p>
+      <p class="ivory-reviews__guest">— Michael R.</p>
+      <p class="ivory-reviews__context">Nairobi, Kenya</p>
     </article>
   </div>
 </section>
@@ -2144,7 +2153,7 @@
   .ivory-reviews {
     --ivory-reviews-ink: #211f1b;
     --ivory-reviews-muted: #6e675d;
-    padding: clamp(112px, 15vw, 220px) clamp(24px, 7vw, 104px) clamp(140px, 17vw, 240px);
+    padding: clamp(88px, 10vw, 144px) clamp(24px, 7vw, 104px) clamp(120px, 14vw, 190px);
     background: #fbfaf7;
     color: var(--ivory-reviews-ink);
     text-align: center;
@@ -2167,6 +2176,7 @@
   .ivory-reviews.is-visible .ivory-reviews__item:nth-child(1) { transition-delay: 180ms; }
   .ivory-reviews.is-visible .ivory-reviews__item:nth-child(2) { transition-delay: 280ms; }
   .ivory-reviews.is-visible .ivory-reviews__item:nth-child(3) { transition-delay: 380ms; }
+  .ivory-reviews.is-visible .ivory-reviews__item:nth-child(4) { transition-delay: 480ms; }
 
   .ivory-reviews__eyebrow,
   .ivory-footer__label {
@@ -2179,7 +2189,7 @@
 
   .ivory-reviews__title {
     margin: 0;
-    font: 400 clamp(42px, 6vw, 78px)/1.02 'Libre Caslon Display', Georgia, serif;
+    font: 400 clamp(48px, 4.5vw, 64px)/1.02 'Libre Caslon Display', Georgia, serif;
     letter-spacing: 0.015em;
     text-transform: uppercase;
   }
@@ -2189,7 +2199,7 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: clamp(28px, 5vw, 80px);
     max-width: 1180px;
-    margin: clamp(76px, 9vw, 132px) auto 0;
+    margin: clamp(52px, 6vw, 84px) auto 0;
     text-align: left;
   }
 
@@ -2197,6 +2207,13 @@
     padding-top: 24px;
     border-top: 1px solid rgba(33, 31, 27, 0.18);
     transition-duration: 0.9s;
+  }
+
+  .ivory-reviews__rating {
+    margin: 0 0 18px;
+    color: var(--ivory-reviews-ink);
+    font: 12px/1 'Work Sans', sans-serif;
+    letter-spacing: 0.16em;
   }
 
   .ivory-reviews__item:hover {
@@ -2362,7 +2379,7 @@
 
   @media (max-width: 760px) {
     .ivory-reviews {
-      padding: 96px 20px 120px;
+      padding: 80px 20px 112px;
     }
 
     .ivory-reviews__title {
@@ -2372,7 +2389,7 @@
     .ivory-reviews__grid {
       grid-template-columns: 1fr;
       gap: 54px;
-      margin-top: 68px;
+      margin-top: 52px;
     }
 
     .ivory-footer {
