@@ -498,10 +498,27 @@
     .nav-links { display: none; }
     .menu-toggle { display: flex; }
     .hero { grid-template-columns: 1fr; gap: 0; }
-    .hero-image { order: -1; min-height: 340px; border-radius: 20px; margin-bottom: 30px; }
-    .hero-content { padding: 4px 2px 40px 2px; }
-    h1.headline { max-width: none; }
+    .hero-image { order: -1; min-height: 220px; border-radius: 20px; margin-bottom: 22px; }
+    .hero-content { padding: 4px 2px 20px 2px; }
+    .thumb-row { gap: 10px; margin-bottom: 24px; }
+    .thumb { width: 76px; height: 100px; border-radius: 13px; }
+    .thumb.tall { height: 130px; }
+    h1.headline {
+      max-width: none;
+      font-size: clamp(30px, 8vw, 34px);
+      line-height: 1.02;
+      letter-spacing: 0;
+      text-align: center;
+    }
+    h1.headline .headline-line {
+      width: max-content;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
     p.subcopy { max-width: none; }
+    p.subcopy { margin: 10px 0 20px; text-align: center; }
+    .cta-row { justify-content: center; }
   }
 
   @media (max-width: 480px) {
