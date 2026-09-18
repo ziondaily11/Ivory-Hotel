@@ -1456,6 +1456,30 @@
     transform: none;
   }
 
+  .ivory-suites__ph {
+    overflow: hidden;
+    transform: none !important;
+    background-image: none;
+    background-color: transparent;
+  }
+
+  .ivory-suites__ph::after {
+    display: none;
+  }
+
+  .ivory-suites__ph img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .ivory-suites__card:hover .ivory-suites__ph img {
+    transform: scale(1.02);
+  }
+
   .ivory-suites__link span {
     display: inline-block;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1484,6 +1508,7 @@
     .ivory-suites__room-title,
     .ivory-suites__link,
     .ivory-suites__link span,
+    .ivory-suites__ph img,
     .cta-primary,
     .cta-secondary,
     .nav-cta,
@@ -1499,21 +1524,53 @@
     if (!track) return;
 
     var rooms = [
-      ['01', 'Standard Room', 'A calm retreat designed for effortless comfort.'],
-      ['02', 'Regular Suite', 'Spacious interiors, considered details, and room to unwind.'],
-      ['03', 'Deluxe Suite', 'An elevated stay with generous space and refined finishes.'],
-      ['04', 'Executive Suite', 'A private setting shaped for longer stays and quiet moments.'],
-      ['05', 'Ivory Signature Suite', 'The most distinctive expression of the Ivory experience.']
+      {
+        number: '01',
+        name: 'Standard Room',
+        description: 'A calm retreat designed for effortless comfort.',
+        image: 'assets/standard room.jpg',
+        objectPosition: 'center'
+      },
+      {
+        number: '02',
+        name: 'Regular Suite',
+        description: 'Spacious interiors, considered details, and room to unwind.',
+        image: 'assets/regular suites.jpg',
+        objectPosition: 'center'
+      },
+      {
+        number: '03',
+        name: 'Deluxe Suite',
+        description: 'An elevated stay with generous space and refined finishes.',
+        image: 'assets/deluxe suite.jpg',
+        objectPosition: 'center'
+      },
+      {
+        number: '04',
+        name: 'Executive Suite',
+        description: 'A private setting shaped for longer stays and quiet moments.',
+        image: 'assets/Exucutive Suite.jpg',
+        objectPosition: 'center'
+      },
+      {
+        number: '05',
+        name: 'Ivory Signature Suite',
+        description: 'The most distinctive expression of the Ivory experience.',
+        image: 'assets/ivorysignaturesuite.jpg',
+        objectPosition: 'center'
+      }
     ];
 
     track.innerHTML = rooms.map(function (room, index) {
       var size = index === 0 || index === 3 ? 'tall' : index === 4 ? 'medium' : 'short';
       return '<article class="ivory-suites__card ivory-suites__card--' + size + '">' +
-        '<div class="ivory-suites__ph"></div>' +
+        '<div class="ivory-suites__ph">' +
+          '<img src="' + room.image + '" alt="' + room.name + '" style="object-position: ' + room.objectPosition + ';">' +
+        '</div>' +
         '<div class="ivory-suites__meta">' +
-          '<span class="ivory-suites__number">' + room[0] + ' / 05</span>' +
-          '<h3 class="ivory-suites__room-title">' + room[1] + '</h3>' +
-          '<p class="ivory-suites__description">' + room[2] + '</p>' +
+          '<span class="ivory-suites__number">' + room.number + ' / 05</span>' +
+          '<h3 class="ivory-suites__room-title">' + room.name + '</h3>' +
+          '<p class="ivory-suites__description">' + room.description + '</p>' +
           '<a class="ivory-suites__link" href="#suites">Explore suite <span aria-hidden="true">→</span></a>' +
         '</div>' +
       '</article>';
