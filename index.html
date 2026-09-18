@@ -621,6 +621,81 @@
     align-self: flex-start;
   }
 
+  .image-preview {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(25, 22, 18, 0.88);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .image-preview.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .image-preview img {
+    display: block;
+    max-width: min(92vw, 1100px);
+    max-height: 88vh;
+    width: auto;
+    height: auto;
+    border-radius: 14px;
+    object-fit: contain;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+    transform: scale(0.97);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .image-preview.open img {
+    transform: scale(1);
+  }
+
+  .image-preview-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .thumb {
+    cursor: zoom-in;
+  }
+
+  @media (max-width: 480px) {
+    .image-preview {
+      padding: 18px;
+    }
+
+    .image-preview img {
+      max-width: 94vw;
+      max-height: 82vh;
+      border-radius: 11px;
+    }
+
+    .image-preview-close {
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 980px) {
     .stage {
@@ -873,6 +948,11 @@
   <button class="nav-cta">Book a table</button>
 </div>
 
+<div class="image-preview" id="imagePreview" role="dialog" aria-modal="true" aria-label="Image preview" aria-hidden="true">
+  <button class="image-preview-close" id="imagePreviewClose" type="button" aria-label="Close image preview">&times;</button>
+  <img id="imagePreviewImage" alt="">
+</div>
+
 <script>
   var toggle = document.getElementById('menuToggle');
   var close = document.getElementById('menuClose');
@@ -894,6 +974,27 @@
   var didSwipe = false;
   var isAnimating = false;
   var animationDuration = 720;
+  var imagePreview = document.getElementById('imagePreview');
+  var imagePreviewImage = document.getElementById('imagePreviewImage');
+  var imagePreviewClose = document.getElementById('imagePreviewClose');
+  var lastFocusedElement = null;
+
+  function openImagePreview(image) {
+    lastFocusedElement = document.activeElement;
+    imagePreviewImage.src = image.src;
+    imagePreviewImage.alt = image.alt;
+    imagePreview.classList.add('open');
+    imagePreview.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    imagePreviewClose.focus();
+  }
+
+  function closeImagePreview() {
+    imagePreview.classList.remove('open');
+    imagePreview.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocusedElement) lastFocusedElement.focus();
+  }
 
   function carouselIndex(index) {
     return (index + carouselImages.length) % carouselImages.length;
@@ -966,8 +1067,17 @@
     }
     var slot = event.target.closest('.thumb');
     if (!slot) return;
-    if (slot.dataset.pos === 'left') moveCarousel(-1);
-    if (slot.dataset.pos === 'right') moveCarousel(1);
+    var image = slot.querySelector('img');
+    openImagePreview({ src: image.src, alt: image.alt });
+  });
+  imagePreviewClose.addEventListener('click', closeImagePreview);
+  imagePreview.addEventListener('click', function(event) {
+    if (event.target === imagePreview) closeImagePreview();
+  });
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && imagePreview.classList.contains('open')) {
+      closeImagePreview();
+    }
   });
   renderCarousel();
 </script>
