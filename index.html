@@ -928,7 +928,7 @@
 
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
-      <li><a href="#">Suites</a></li>
+      <li><a href="#suites">Suites</a></li>
       <li><a href="#">Dining</a></li>
       <li><a href="#">Gallery</a></li>
       <li><a href="#">Reviews</a></li>
@@ -976,6 +976,184 @@
 
 </div>
 
+<section class="ivory-suites" id="suites">
+  <div class="ivory-suites__header">
+    <h2 class="ivory-suites__title">Suites and Rooms</h2>
+    <p class="ivory-suites__subtitle">
+      From the Nairobi skyline to the highlands of Nakuru and the coast in
+      Mombasa, every Ivory suite is shaped by its city — quiet comfort,
+      thoughtful detail, and a view worth waking up to.
+    </p>
+  </div>
+
+  <div class="ivory-suites__marquee">
+    <div class="ivory-suites__track" id="ivorySuitesTrack">
+      <div class="ivory-suites__card ivory-suites__card--short" data-img="">
+        <div class="ivory-suites__ph"></div>
+        <span class="ivory-suites__tag">photo</span>
+      </div>
+      <div class="ivory-suites__card ivory-suites__card--tall" data-img="">
+        <div class="ivory-suites__ph"></div>
+        <span class="ivory-suites__tag">photo</span>
+      </div>
+      <div class="ivory-suites__card ivory-suites__card--medium" data-img="">
+        <div class="ivory-suites__ph"></div>
+        <span class="ivory-suites__tag">photo</span>
+      </div>
+      <div class="ivory-suites__card ivory-suites__card--tall" data-img="">
+        <div class="ivory-suites__ph"></div>
+        <span class="ivory-suites__tag">photo</span>
+      </div>
+      <div class="ivory-suites__card ivory-suites__card--short" data-img="">
+        <div class="ivory-suites__ph"></div>
+        <span class="ivory-suites__tag">photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ivory-suites {
+    --ivory-ink: #1a1a1a;
+    --ivory-muted: #6e6b63;
+    --ivory-card: #f1ece2;
+    --ivory-card-line: rgba(26, 26, 26, 0.08);
+    --ivory-tag-text: #7a5c3e;
+    background: #ffffff;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8vh 24px;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .ivory-suites__header {
+    max-width: 620px;
+    margin: 0 auto 4vh;
+    text-align: center;
+  }
+
+  .ivory-suites__title {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-weight: 600;
+    font-size: clamp(1.9rem, 4.2vw, 3rem);
+    line-height: 1.1;
+    color: var(--ivory-ink);
+    margin: 0 0 16px;
+  }
+
+  .ivory-suites__subtitle {
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    line-height: 1.55;
+    color: var(--ivory-muted);
+    margin: 0;
+  }
+
+  .ivory-suites__marquee {
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 64px, #000 calc(100% - 64px), transparent 100%);
+  }
+
+  .ivory-suites__track {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    width: max-content;
+    animation: ivory-suites-scroll 38s linear infinite;
+  }
+
+  .ivory-suites__marquee:hover .ivory-suites__track {
+    animation-play-state: paused;
+  }
+
+  @keyframes ivory-suites-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .ivory-suites__card {
+    position: relative;
+    flex: 0 0 auto;
+    width: clamp(150px, 18vw, 220px);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .ivory-suites__card--short { height: clamp(140px, 24vh, 220px); }
+  .ivory-suites__card--medium { height: clamp(180px, 32vh, 300px); }
+  .ivory-suites__card--tall { height: clamp(220px, 42vh, 380px); }
+
+  .ivory-suites__ph {
+    position: absolute;
+    inset: 0;
+    background-color: var(--ivory-card);
+    background-image: repeating-linear-gradient(45deg, var(--ivory-card-line) 0, var(--ivory-card-line) 1px, transparent 1px, transparent 14px);
+    border-radius: 18px;
+  }
+
+  .ivory-suites__tag {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    background: #ffffff;
+    color: var(--ivory-tag-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+
+  .ivory-suites__card[data-img]:not([data-img=""]) .ivory-suites__ph {
+    background-image: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ivory-suites__track { animation: none; }
+    .ivory-suites__marquee { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
+
+  @media (max-width: 640px) {
+    .ivory-suites { padding: 8vh 20px; }
+    .ivory-suites__header { margin-bottom: 3vh; }
+    .ivory-suites__card { width: clamp(110px, 34vw, 150px); }
+    .ivory-suites__card--short { height: clamp(110px, 20vh, 170px); }
+    .ivory-suites__card--medium { height: clamp(140px, 27vh, 220px); }
+    .ivory-suites__card--tall { height: clamp(170px, 34vh, 270px); }
+    .ivory-suites__track { gap: 12px; animation-duration: 26s; }
+  }
+</style>
+
+<script>
+  (function () {
+    var track = document.getElementById('ivorySuitesTrack');
+    if (!track) return;
+
+    track.querySelectorAll('.ivory-suites__card').forEach(function (card) {
+      var url = card.getAttribute('data-img');
+      if (!url) return;
+      var placeholder = card.querySelector('.ivory-suites__ph');
+      if (placeholder) {
+        placeholder.style.backgroundImage = 'url("' + url + '")';
+        placeholder.style.backgroundSize = 'cover';
+        placeholder.style.backgroundPosition = 'center';
+      }
+      var tag = card.querySelector('.ivory-suites__tag');
+      if (tag) tag.remove();
+    });
+
+    Array.prototype.slice.call(track.children).forEach(function (card) {
+      var clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+  })();
+</script>
+
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-top">
     <div class="brand">
@@ -985,7 +1163,7 @@
   </div>
   <ul>
     <li><a href="#">Home</a></li>
-    <li><a href="#">Suites</a></li>
+    <li><a href="#suites">Suites</a></li>
     <li><a href="#">Dining</a></li>
     <li><a href="#">Gallery</a></li>
     <li><a href="#">Reviews</a></li>
