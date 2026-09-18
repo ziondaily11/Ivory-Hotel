@@ -1734,7 +1734,14 @@
       simple pleasure of lingering a little longer.
     </p>
     <p class="ivory-dining__detail">Local flavours.<br>Timeless hospitality.</p>
-    <a class="ivory-dining__link" href="#dining">Explore dining <span aria-hidden="true">→</span></a>
+    <div class="ivory-dining__actions">
+      <a class="ivory-dining__button ivory-dining__button--primary" href="#dining">
+        Book a table <span aria-hidden="true">→</span>
+      </a>
+      <a class="ivory-dining__button ivory-dining__button--secondary" href="#dining">
+        Menu <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
 
   <div class="ivory-dining__visual" aria-label="Ivory dining highlights">
@@ -1744,7 +1751,12 @@
       <img class="ivory-dining__slide" src="assets/imgc.jpg" alt="Ivory dining experience">
       <img class="ivory-dining__slide" src="assets/imgd.jpg" alt="Ivory dining experience">
     </div>
-    <div class="ivory-dining__indicator" aria-live="polite">01 / 04</div>
+    <div class="ivory-dining__dots" role="tablist" aria-label="Dining image slides">
+      <button class="ivory-dining__dot is-active" type="button" role="tab" aria-label="Show dining image 1" aria-selected="true"></button>
+      <button class="ivory-dining__dot" type="button" role="tab" aria-label="Show dining image 2" aria-selected="false"></button>
+      <button class="ivory-dining__dot" type="button" role="tab" aria-label="Show dining image 3" aria-selected="false"></button>
+      <button class="ivory-dining__dot" type="button" role="tab" aria-label="Show dining image 4" aria-selected="false"></button>
+    </div>
   </div>
 </section>
 
@@ -1753,17 +1765,19 @@
     --ivory-dining-ink: #211f1b;
     --ivory-dining-muted: #5f584f;
     display: grid;
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
-    gap: clamp(48px, 8vw, 128px);
-    align-items: center;
-    min-height: min(760px, 100vh);
-    padding: clamp(72px, 9vw, 128px) clamp(24px, 7vw, 104px);
+    grid-template-columns: 45% 55%;
+    align-items: stretch;
+    min-height: 100vh;
+    padding: 0;
     background: #fbfaf7;
     color: var(--ivory-dining-ink);
   }
 
   .ivory-dining__content {
     max-width: 430px;
+    align-self: center;
+    margin-left: clamp(24px, 7vw, 104px);
+    padding: clamp(72px, 9vw, 128px) 0;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1819,37 +1833,73 @@
     line-height: 1.7;
   }
 
-  .ivory-dining__link {
+  .ivory-dining__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .ivory-dining__button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--ivory-dining-ink);
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 20px;
+    border: 1px solid var(--ivory-dining-ink);
+    border-radius: 999px;
     font: 500 11px/1.2 'Work Sans', sans-serif;
     letter-spacing: 0.18em;
     text-decoration: none;
     text-transform: uppercase;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   }
 
-  .ivory-dining__link span {
+  .ivory-dining__button--primary {
+    background: var(--ivory-dining-ink);
+    color: #fff;
+  }
+
+  .ivory-dining__button--secondary {
+    background: transparent;
+    color: var(--ivory-dining-ink);
+  }
+
+  .ivory-dining__button:hover,
+  .ivory-dining__button:focus-visible {
+    transform: translateY(-1px);
+  }
+
+  .ivory-dining__button--primary:hover,
+  .ivory-dining__button--primary:focus-visible {
+    background: #000;
+  }
+
+  .ivory-dining__button--secondary:hover,
+  .ivory-dining__button--secondary:focus-visible {
+    background: #ebe7df;
+  }
+
+  .ivory-dining__button span {
     display: inline-block;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .ivory-dining__link:hover span,
-  .ivory-dining__link:focus-visible span {
+  .ivory-dining__button:hover span,
+  .ivory-dining__button:focus-visible span {
     transform: translateX(5px);
   }
 
   .ivory-dining__visual {
     position: relative;
     min-width: 0;
+    min-height: 100vh;
   }
 
   .ivory-dining__slides {
     position: relative;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     overflow: hidden;
-    border-radius: 4px;
     background: #eee8dc;
   }
 
@@ -1867,11 +1917,32 @@
     opacity: 1;
   }
 
-  .ivory-dining__indicator {
-    margin-top: 14px;
-    color: var(--ivory-dining-muted);
-    font: 500 10px/1.2 'Work Sans', sans-serif;
-    letter-spacing: 0.18em;
+  .ivory-dining__dots {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+    transform: translateX(-50%);
+  }
+
+  .ivory-dining__dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    background: transparent;
+    opacity: 0.75;
+    cursor: pointer;
+    transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .ivory-dining__dot.is-active {
+    background: #fff;
+    opacity: 1;
+    transform: scale(1.25);
   }
 
   @media (max-width: 640px) {
@@ -1884,6 +1955,8 @@
     .ivory-dining__content {
       max-width: none;
       margin-bottom: 42px;
+      margin-left: 0;
+      padding: 0;
     }
 
     .ivory-dining__title {
@@ -1898,12 +1971,21 @@
     .ivory-dining__body {
       font-size: 14px;
     }
+
+    .ivory-dining__visual {
+      min-height: 420px;
+    }
+
+    .ivory-dining__slides {
+      height: 420px;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .ivory-dining__content,
     .ivory-dining__slide,
-    .ivory-dining__link span {
+    .ivory-dining__button span,
+    .ivory-dining__dot {
       transition: none;
     }
   }
@@ -1916,7 +1998,7 @@
 
     var content = dining.querySelector('.ivory-dining__content');
     var slides = dining.querySelectorAll('.ivory-dining__slide');
-    var indicator = dining.querySelector('.ivory-dining__indicator');
+    var dots = dining.querySelectorAll('.ivory-dining__dot');
     var current = 0;
 
     if ('IntersectionObserver' in window) {
@@ -1932,14 +2014,25 @@
       content.classList.add('is-visible');
     }
 
-    function showNextSlide() {
+    function showSlide(index) {
       slides[current].classList.remove('is-active');
-      current = (current + 1) % slides.length;
+      dots[current].classList.remove('is-active');
+      dots[current].setAttribute('aria-selected', 'false');
+      current = index;
       slides[current].classList.add('is-active');
-      indicator.textContent = String(current + 1).padStart(2, '0') + ' / 04';
+      dots[current].classList.add('is-active');
+      dots[current].setAttribute('aria-selected', 'true');
     }
 
-    window.setInterval(showNextSlide, 4500);
+    dots.forEach(function (dot, index) {
+      dot.addEventListener('click', function () {
+        showSlide(index);
+      });
+    });
+
+    window.setInterval(function () {
+      showSlide((current + 1) % slides.length);
+    }, 4500);
   })();
 </script>
 
