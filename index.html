@@ -1540,7 +1540,40 @@
   .ivory-suites__card--medium .ivory-suites__ph,
   .ivory-suites__card--tall .ivory-suites__ph {
     height: auto;
+    width: 100%;
     aspect-ratio: 16 / 9;
+  }
+
+  .ivory-suites__ph img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ivory-suites__meta {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+  }
+
+  .ivory-suites__number,
+  .ivory-suites__description {
+    color: #5f584f;
+  }
+
+  .ivory-suites__description {
+    flex: 0 0 auto;
+  }
+
+  .ivory-suites__link {
+    margin-top: auto;
+  }
+
+  @media (min-width: 641px) {
+    .ivory-suites__meta {
+      height: 155px;
+      min-height: 155px;
+    }
   }
 </style>
 
