@@ -82,7 +82,7 @@
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 26px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -94,23 +94,34 @@
     color: var(--charcoal-soft);
     text-decoration: none;
     font-size: 14.5px;
-    font-weight: 500;
+    font-weight: 400;
     position: relative;
-    padding: 8px 14px;
-    border: 1px solid #CFC3B2;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.72);
-    transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    padding: 8px 0;
+    transition: color 0.25s ease, opacity 0.25s ease;
   }
 
   .nav-links a::after {
-    display: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.25s ease;
   }
 
   .nav-links a:hover {
     color: var(--charcoal);
-    background: var(--accent-soft);
-    border-color: var(--beige);
+    opacity: 0.8;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 
   .nav-cta {
@@ -380,7 +391,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 22px;
+    gap: 14px;
     opacity: 0;
     transform: translateY(10px);
     animation: riseIn 0.8s ease forwards 0.42s;
@@ -411,17 +422,27 @@
   }
 
   .cta-secondary {
-    font-size: 14px;
-    color: var(--charcoal-soft);
-    text-decoration: none;
-    border-bottom: 1px solid var(--beige-line);
-    padding-bottom: 3px;
-    transition: border-color 0.25s ease, color 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--charcoal);
+    border: 1px solid var(--beige-line);
+    border-radius: 6px;
+    padding: 17px 28px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease, transform 0.3s ease;
   }
 
   .cta-secondary:hover {
     color: var(--charcoal);
-    border-color: var(--accent);
+    background: var(--accent-soft);
+    border-color: var(--beige);
+    transform: translateY(-2px);
   }
 
   /* ---------- HERO IMAGE ---------- */
@@ -525,7 +546,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
     z-index: 1;
     pointer-events: none;
   }
@@ -542,6 +563,7 @@
     font-size: clamp(20px, 2vw, 26px);
     line-height: 1.3;
     max-width: 16ch;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.28);
   }
 
   @keyframes riseIn {
@@ -919,7 +941,8 @@
       </p>
 
       <div class="cta-row">
-        <button class="cta-primary">Book a table</button>
+        <button class="cta-primary" type="button">Book a table</button>
+        <button class="cta-secondary" type="button">Explore Stay</button>
       </div>
     </div>
 
