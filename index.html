@@ -2241,8 +2241,8 @@
   }
 
   .ivory-footer {
-    padding: clamp(72px, 9vw, 126px) clamp(24px, 7vw, 104px) 28px;
-    background: #211f1b;
+    padding: clamp(28px, 3vw, 40px) clamp(24px, 7vw, 104px) 14px;
+    background: #0d0c0b;
     color: #f5f1e9;
   }
 
@@ -2268,36 +2268,36 @@
   .ivory-footer__grid {
     display: grid;
     grid-template-columns: 1.5fr repeat(3, 1fr);
-    gap: clamp(32px, 6vw, 96px);
+    gap: clamp(24px, 4vw, 60px);
     max-width: 1240px;
     margin: 0 auto;
   }
 
   .ivory-footer__brand img {
-    width: 118px;
+    width: 96px;
     height: auto;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     filter: brightness(0) invert(1);
   }
 
   .ivory-footer__brand p {
-    max-width: 28ch;
+    max-width: 30ch;
     margin: 0;
     color: rgba(245, 241, 233, 0.68);
-    font: 14px/1.75 'Work Sans', sans-serif;
+    font: 12px/1.5 'Work Sans', sans-serif;
   }
 
   .ivory-footer__group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 7px;
     color: rgba(245, 241, 233, 0.72);
     font: 13px/1.5 'Work Sans', sans-serif;
   }
 
   .ivory-footer__group .ivory-footer__label {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     color: #f5f1e9;
   }
 
@@ -2316,8 +2316,23 @@
   .ivory-footer__follow a {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-size: 18px;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .ivory-footer__follow a svg {
+    width: 15px;
+    height: 15px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+  }
+
+  .ivory-footer__follow a:nth-of-type(2) svg {
+    fill: currentColor;
+    stroke: none;
   }
 
   .ivory-footer__follow a span {
@@ -2330,19 +2345,19 @@
     justify-content: space-between;
     gap: 32px;
     max-width: 1240px;
-    margin: clamp(88px, 12vw, 170px) auto 90px;
-    padding-top: 28px;
+    margin: clamp(24px, 3vw, 36px) auto 20px;
+    padding-top: 18px;
     border-top: 1px solid rgba(245, 241, 233, 0.2);
   }
 
   .ivory-footer__closing .ivory-footer__label {
-    margin-bottom: 14px;
+    margin-bottom: 8px;
     color: rgba(245, 241, 233, 0.6);
   }
 
   .ivory-footer__invitation {
     margin: 0;
-    font: 400 clamp(26px, 3vw, 46px)/1.1 'Libre Caslon Display', Georgia, serif;
+    font: 400 clamp(20px, 2vw, 30px)/1.1 'Libre Caslon Display', Georgia, serif;
   }
 
   .ivory-footer__cta {
@@ -2371,7 +2386,7 @@
     justify-content: space-between;
     max-width: 1240px;
     margin: 0 auto;
-    padding-top: 22px;
+    padding-top: 14px;
     border-top: 1px solid rgba(245, 241, 233, 0.12);
     color: rgba(245, 241, 233, 0.48);
     font: 11px/1.4 'Work Sans', sans-serif;
@@ -2393,12 +2408,12 @@
     }
 
     .ivory-footer {
-      padding: 72px 20px 24px;
+      padding: 28px 16px 14px;
     }
 
     .ivory-footer__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 56px 28px;
+      gap: 20px 20px;
     }
 
     .ivory-footer__brand {
@@ -2407,11 +2422,11 @@
 
     .ivory-footer__closing {
       display: block;
-      margin: 96px auto 68px;
+      margin: 28px auto 22px;
     }
 
     .ivory-footer__cta {
-      margin-top: 28px;
+      margin-top: 18px;
     }
 
     .ivory-footer__bottom {
@@ -2536,9 +2551,18 @@
     </div>
     <div class="ivory-footer__group ivory-footer__follow">
       <p class="ivory-footer__label">Follow</p>
-      <a href="#" aria-label="Instagram placeholder">◎ <span>Instagram</span></a>
-      <a href="#" aria-label="Facebook placeholder">f <span>Facebook</span></a>
-      <a href="#" aria-label="Social channel placeholder">in <span>Social channel</span></a>
+      <a href="#" aria-label="Instagram placeholder">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+        <span>Instagram</span>
+      </a>
+      <a href="#" aria-label="Facebook placeholder">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 21v-8h2.75l.5-3H14V8.2c0-.87.29-1.7 1.65-1.7h1.75V3.8c-.31-.04-1.37-.13-2.55-.13-2.52 0-4.25 1.54-4.25 4.38V10H7.75v3H10.6v8"></path></svg>
+        <span>Facebook</span>
+      </a>
+      <a href="#" aria-label="LinkedIn placeholder">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 9v10M6 5.5v.01M10.5 19V9m0 4.25A4.25 4.25 0 0 1 14.75 9c2.35 0 3.25 1.53 3.25 4.35V19M10.5 13.25V19"></path></svg>
+        <span>LinkedIn</span>
+      </a>
     </div>
   </div>
   <div class="ivory-footer__closing">
