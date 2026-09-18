@@ -2153,7 +2153,7 @@
   .ivory-reviews {
     --ivory-reviews-ink: #211f1b;
     --ivory-reviews-muted: #6e675d;
-    padding: clamp(88px, 10vw, 144px) clamp(24px, 7vw, 104px) clamp(120px, 14vw, 190px);
+    padding: clamp(72px, 8vw, 112px) clamp(24px, 7vw, 104px) clamp(88px, 9vw, 128px);
     background: #fbfaf7;
     color: var(--ivory-reviews-ink);
     text-align: center;
@@ -2189,30 +2189,30 @@
 
   .ivory-reviews__title {
     margin: 0;
-    font: 400 clamp(48px, 4.5vw, 64px)/1.02 'Libre Caslon Display', Georgia, serif;
+    font: 400 clamp(44px, 3.8vw, 56px)/1.04 'Libre Caslon Display', Georgia, serif;
     letter-spacing: 0.015em;
     text-transform: uppercase;
   }
 
   .ivory-reviews__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(28px, 5vw, 80px);
-    max-width: 1180px;
-    margin: clamp(52px, 6vw, 84px) auto 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(20px, 2.8vw, 44px);
+    max-width: 1240px;
+    margin: clamp(50px, 5vw, 70px) auto 0;
     text-align: left;
   }
 
   .ivory-reviews__item {
-    padding-top: 24px;
+    padding-top: 20px;
     border-top: 1px solid rgba(33, 31, 27, 0.18);
     transition-duration: 0.9s;
   }
 
   .ivory-reviews__rating {
-    margin: 0 0 18px;
+    margin: 0 0 14px;
     color: var(--ivory-reviews-ink);
-    font: 12px/1 'Work Sans', sans-serif;
+    font: 13px/1 'Work Sans', sans-serif;
     letter-spacing: 0.16em;
   }
 
@@ -2221,10 +2221,10 @@
   }
 
   .ivory-reviews__quote {
-    max-width: 34ch;
-    margin: 0 0 30px;
+    max-width: 28ch;
+    margin: 0 0 20px;
     color: var(--ivory-reviews-ink);
-    font: 400 clamp(19px, 2vw, 26px)/1.45 'Libre Caslon Display', Georgia, serif;
+    font: 400 clamp(18px, 1.35vw, 22px)/1.58 'Libre Caslon Display', Georgia, serif;
   }
 
   .ivory-reviews__guest {
@@ -2379,7 +2379,7 @@
 
   @media (max-width: 760px) {
     .ivory-reviews {
-      padding: 80px 20px 112px;
+      padding: 64px 20px 88px;
     }
 
     .ivory-reviews__title {
@@ -2388,8 +2388,8 @@
 
     .ivory-reviews__grid {
       grid-template-columns: 1fr;
-      gap: 54px;
-      margin-top: 52px;
+      gap: 44px;
+      margin-top: 48px;
     }
 
     .ivory-footer {
@@ -2417,6 +2417,13 @@
     .ivory-footer__bottom {
       flex-direction: column;
       gap: 8px;
+    }
+  }
+
+  @media (min-width: 761px) and (max-width: 1100px) {
+    .ivory-reviews__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 44px;
     }
   }
 
