@@ -192,6 +192,22 @@
     touch-action: pan-y;
   }
 
+  .carousel-hint {
+    display: none;
+  }
+
+  @keyframes carouselPeek {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    38% {
+      transform: translateX(-6px);
+    }
+    72% {
+      transform: translateX(3px);
+    }
+  }
+
   .thumb {
     position: absolute;
     bottom: 0;
@@ -538,7 +554,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .thumb, h1.headline, p.subcopy, .cta-row, .hero-image {
+    .thumb-row, .thumb, h1.headline, p.subcopy, .cta-row, .hero-image {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
@@ -669,7 +685,30 @@
       --thumb-center-h: 180px;
       --thumb-gap: 10px;
       --thumb-radius: 13px;
-      margin-bottom: 8px;
+      width: min(100%, 320px);
+      margin-bottom: 20px;
+      animation: carouselPeek 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;
+    }
+    .thumb[data-pos="right"] {
+      transform: translateX(calc(-50% + (var(--thumb-center-w) / 2) + var(--thumb-gap) + (var(--thumb-w) / 2) + 6px));
+    }
+    .carousel-hint {
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: -16px;
+      transform: translateX(-50%);
+      color: rgba(var(--shadow-color), 0.58);
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .thumb-row.has-swiped .carousel-hint {
+      opacity: 0;
     }
     .carousel-nav { display: none; }
     h1.headline {
@@ -709,7 +748,7 @@
       justify-content: center;
       gap: 14px;
     }
-    .thumb-row { margin-bottom: 8px; }
+    .thumb-row { margin-bottom: 14px; }
   }
 
   @media (max-width: 380px) {
@@ -727,7 +766,7 @@
       --thumb-center-w: 96px;
       --thumb-center-h: 150px;
       --thumb-gap: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 14px;
     }
 
     h1.headline {
@@ -755,6 +794,7 @@
       --thumb-h: 86px;
       --thumb-center-w: 76px;
       --thumb-center-h: 108px;
+      margin-bottom: 10px;
     }
   }
 </style>
@@ -793,6 +833,7 @@
         <div class="thumb" data-slot="4"><img alt=""></div>
         <div class="thumb" data-slot="5"><img alt=""></div>
         <button class="carousel-nav next" type="button" aria-label="Next highlight">&rsaquo;</button>
+        <span class="carousel-hint" aria-hidden="true">Swipe to explore</span>
       </div>
       <h1 class="headline">
         <span class="headline-line">The Ivory Experience</span>
@@ -912,6 +953,7 @@
     pointerStartX = null;
     if (Math.abs(distance) < 35) return;
     didSwipe = true;
+    carousel.classList.add('has-swiped');
     moveCarousel(distance < 0 ? 1 : -1);
   });
   carousel.addEventListener('pointercancel', function() {
