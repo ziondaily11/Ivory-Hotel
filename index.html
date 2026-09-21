@@ -2265,6 +2265,49 @@
   .ivory-reviews.is-visible .ivory-reviews__item:nth-child(3) { transition-delay: 380ms; }
   .ivory-reviews.is-visible .ivory-reviews__item:nth-child(4) { transition-delay: 480ms; }
 
+  @keyframes ivory-review-copy-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(9px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes ivory-review-rating-pulse {
+    0%, 100% {
+      opacity: 0.72;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+  }
+
+  .ivory-reviews__rating,
+  .ivory-reviews__quote,
+  .ivory-reviews__guest,
+  .ivory-reviews__context {
+    animation-play-state: paused;
+  }
+
+  .ivory-reviews.is-visible .ivory-reviews__rating {
+    animation: ivory-review-rating-pulse 3.6s ease-in-out infinite;
+  }
+
+  .ivory-reviews.is-visible .ivory-reviews__quote,
+  .ivory-reviews.is-visible .ivory-reviews__guest,
+  .ivory-reviews.is-visible .ivory-reviews__context {
+    animation: ivory-review-copy-reveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .ivory-reviews.is-visible .ivory-reviews__quote { animation-delay: 120ms; }
+  .ivory-reviews.is-visible .ivory-reviews__guest { animation-delay: 240ms; }
+  .ivory-reviews.is-visible .ivory-reviews__context { animation-delay: 330ms; }
+
   .ivory-reviews__eyebrow,
   .ivory-footer__label {
     margin: 0 0 18px;
@@ -2555,12 +2598,17 @@
   @media (prefers-reduced-motion: reduce) {
     .ivory-reviews__intro,
     .ivory-reviews__item,
+    .ivory-reviews__rating,
+    .ivory-reviews__quote,
+    .ivory-reviews__guest,
+    .ivory-reviews__context,
     .ivory-footer__grid,
     .ivory-footer__closing,
     .ivory-footer__bottom {
       opacity: 1;
       transform: none;
       transition: none;
+      animation: none;
     }
 
     .ivory-footer__group a,
